@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.detailmatch.DetailMatchActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="300dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressBackgroundTint="@color/white"
+                />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_margin="20dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/league_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/colorPrimary"
+                        tools:text="English Premier League"/>
+
+                    <ImageView
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/img_badge_home"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_below="@+id/league_name"
+                        android:layout_marginStart="8dp"
+                        tools:src="@drawable/enam_american_mayor_league"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/img_badge_away"
+                        android:layout_width="120dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_below="@+id/league_name"
+                        android:layout_height="120dp"
+                        tools:src="@drawable/enam_american_mayor_league"/>
+
+                    <TextView
+                        android:id="@+id/tv_team_home"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        tools:text="Crystal Palace"
+                        android:textSize="18sp"
+                        android:layout_below="@+id/img_badge_home"
+                        android:textStyle="bold"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_team_away"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        tools:text="Crystal Palace"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_below="@+id/img_badge_home"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_score_away"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@+id/tv_sparator"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_below="@+id/img_badge_home"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        tools:text="2"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_sparator"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_below="@+id/img_badge_home"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textSize="50sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_score_home"
+                        android:layout_width="wrap_content"
+                        android:layout_toLeftOf="@+id/tv_sparator"
+                        android:layout_marginTop="30dp"
+                        android:layout_below="@+id/img_badge_home"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_height="wrap_content"
+                        tools:text="3"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        />
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/name_match"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_view"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="Burnley vs West Ham"
+                />
+
+            <TextView
+                android:id="@+id/date_match"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_match"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="14/10/2019"/>
+
+            <TextView
+                android:id="@+id/score_home"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_match"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="3"/>
+
+            <TextView
+                android:id="@+id/sparator_score"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_match"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                android:text="Score"/>
+
+            <TextView
+                android:id="@+id/score_away"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_match"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorPrimary"
+                tools:text="2"/>
+
+            <TextView
+                android:id="@+id/shoot_home"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/score_home"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="11"/>
+
+            <TextView
+                android:id="@+id/sparator_shoot"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/score_home"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                android:text="Shoots"/>
+
+            <TextView
+                android:id="@+id/shoot_away"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/score_home"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorPrimary"
+                tools:text="4"/>
+
+            <!--    formation-->
+
+            <TextView
+                android:id="@+id/formation_home"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shoot_home"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="3-4-3"/>
+
+            <TextView
+                android:id="@+id/sparator_formation"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shoot_home"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                android:text="Formation"/>
+
+            <TextView
+                android:id="@+id/formation_away"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shoot_home"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorPrimary"
+                tools:text="4-2-3-1"/>
+
+            <TextView
+                android:id="@+id/textGoalHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/formation_home"
+                android:layout_marginTop="30dp"
+                android:textSize="18sp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Home Goal Details :" />
+
+            <TextView
+                android:id="@+id/detail_goal_home"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/formation_home"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@+id/textGoalHome"
+                android:layout_marginStart="16dp"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="61': Adam Lallana;51': Adam Lallana;33': Alberto Moreno;" />
+
+            <TextView
+                android:id="@+id/textGoalAway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_goal_home"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Away Goal Details :" />
+
+            <TextView
+                android:id="@+id/detail_goal_away"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_goal_home"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_toRightOf="@+id/textGoalAway"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="61': Adam Lallana;51': Adam Lallana;33': Alberto Moreno;" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
