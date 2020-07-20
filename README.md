@@ -1,5 +1,5 @@
 # Football Apps
-Football Match App with Kotlin and MVP (Design Patern) 
+Football App with Kotlin and MVP (Design Patern) 
 
 - List Match of League
 - Standing League
