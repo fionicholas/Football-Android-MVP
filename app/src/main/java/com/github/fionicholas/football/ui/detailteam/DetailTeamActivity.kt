@@ -1,12 +1,10 @@
 package com.github.fionicholas.football.ui.detailteam
 
 import android.database.sqlite.SQLiteConstraintException
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v4.content.ContextCompat
-import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
@@ -18,7 +16,6 @@ import com.github.fionicholas.football.data.helper.database
 import com.github.fionicholas.football.data.model.FavoriteTeam
 import com.github.fionicholas.football.data.model.Team
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_detail_match.*
 import kotlinx.android.synthetic.main.activity_detail_match.loading
 import kotlinx.android.synthetic.main.activity_detail_team.*
 import org.jetbrains.anko.db.classParser
@@ -120,7 +117,7 @@ class DetailTeamActivity : AppCompatActivity(), DetailTeamView {
 
                 isFavorite = !isFavorite
                 setFavorite()
-                true
+                return true
             }
         }
         return super.onOptionsItemSelected(item)
