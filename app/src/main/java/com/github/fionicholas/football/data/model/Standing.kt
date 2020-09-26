@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Standing(
-
     @SerializedName("teamid")
     @Expose
     val teamId: String?,
@@ -36,5 +35,4 @@ data class Standing(
     @SerializedName("draw")
     @Expose
     val draw: String?
-
 )
