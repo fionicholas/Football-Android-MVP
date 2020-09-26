@@ -1,8 +1,6 @@
 package com.github.fionicholas.football.network
 
-import com.github.fionicholas.football.data.model.DetailLeague
 import com.github.fionicholas.football.data.model.FootballResponse
-import com.github.fionicholas.football.data.model.League
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
