@@ -22,21 +22,21 @@ class DetailTeamPresenter(private val view : DetailTeamView) {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         view.hideLoading()
-                        view.showDetailTeam(response.body()!!.teams)
+                        response.body()?.teams?.let { view.showDetailTeam(it) }
                     } else {
                         view.hideLoading()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 } else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "error message : ${error.message}")
             }
         })
     }

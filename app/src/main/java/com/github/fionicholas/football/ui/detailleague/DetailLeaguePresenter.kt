@@ -19,21 +19,21 @@ class DetailLeaguePresenter (private val view: DetailLeagueView) {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         view.hideLoading()
-                        view.showLeagueList(response.body()!!.results)
+                        response.body()?.results?.let { view.showLeagueList(it) }
                     }else {
                         view.hideLoading()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 }else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "message error ${error.message}")
             }
         })
     }

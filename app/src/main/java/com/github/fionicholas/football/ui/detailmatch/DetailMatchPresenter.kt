@@ -19,21 +19,21 @@ class DetailMatchPresenter (private val view: DetailMatchView) {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         view.hideLoading()
-                        view.showDetailMatch(response.body()!!.events)
+                        response.body()?.events?.let { view.showDetailMatch(it) }
                     }else {
                         view.hideLoading()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 }else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "error message :  ${error.message}")
             }
         })
     }
@@ -49,21 +49,21 @@ class DetailMatchPresenter (private val view: DetailMatchView) {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         view.hideLoading()
-                        view.showHomeBadge(response.body()!!.teams)
+                        response.body()?.teams?.let { view.showHomeBadge(it) }
                     }else {
                         view.hideLoading()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 }else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "error message : ${error.message}")
             }
         })
     }
@@ -78,21 +78,21 @@ class DetailMatchPresenter (private val view: DetailMatchView) {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         view.hideLoading()
-                        view.showAwayBadge(response.body()!!.teams)
+                        response.body()?.teams?.let { view.showAwayBadge(it) }
                     }else {
                         view.hideLoading()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 }else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "error message : ${error.message}")
             }
         })
     }
