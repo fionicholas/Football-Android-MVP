@@ -11,14 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.searchmatch.SearchMatchActivity"></activity>
-        <activity android:name=".ui.searchteam.SearchTeamActivity" />
+        <activity
+            android:name=".ui.searchmatch.SearchMatchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.searchteam.SearchTeamActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.detailteam.DetailTeamActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name=".ui.detailmatch.DetailMatchActivity" />
+        <activity
+            android:name=".ui.detailmatch.DetailMatchActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.detailleague.DetailLeagueActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar" />
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
