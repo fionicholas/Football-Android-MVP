@@ -22,18 +22,18 @@ class TeamPresenter ( private val view : Teamview) {
                         view.showTeam(response.body()!!.teams)
                     }else {
                         view.hideLoading()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 }else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "error message :  ${error.message}")
             }
         })
     }

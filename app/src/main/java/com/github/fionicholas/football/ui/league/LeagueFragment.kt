@@ -5,68 +5,66 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-
 import com.github.fionicholas.football.R
-import com.github.fionicholas.football.ui.adapter.LeagueAdapter
 import com.github.fionicholas.football.data.model.League
+import com.github.fionicholas.football.ui.adapter.LeagueAdapter
 import com.github.fionicholas.football.ui.detailleague.DetailLeagueActivity
 import com.github.fionicholas.football.ui.main.MainActivity
+import kotlinx.android.synthetic.main.fragment_league.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class LeagueFragment : Fragment() {
 
-    private lateinit var rv_football: RecyclerView
     private lateinit var adapterLeague: LeagueAdapter
-    private lateinit var progressBar: ProgressBar
-    private var football: MutableList<League> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_league, container, false)
+        return inflater.inflate(R.layout.fragment_league, container, false)
+    }
 
-        rv_football = view.findViewById(R.id.rv_league)
-        progressBar = view.findViewById(R.id.progress_league)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-        adapterLeague = LeagueAdapter(football) {
-            val intent = Intent(view.context, DetailLeagueActivity::class.java)
+        adapterLeague = LeagueAdapter(getLeagueData()) {
+            val intent = Intent(requireContext(), DetailLeagueActivity::class.java)
             intent.putExtra("DETAIL_LEAGUE", it)
             startActivity(intent)
         }
-        rv_football.apply {
-            layoutManager = GridLayoutManager(view.context, 2)
+
+        rvLeague.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = adapterLeague
         }
-        initData()
-    return view
     }
-    private fun initData(){
+
+    private fun getLeagueData(): MutableList<League> {
+        val investments = mutableListOf<League>()
 
         val name = resources.getStringArray(R.array.league_name)
         val id = resources.getStringArray(R.array.league_id)
         val image = resources.obtainTypedArray(R.array.league_image)
         val description = resources.getStringArray(R.array.league_description)
-        football.clear()
 
-        for (i in name.indices) {
-            football.add(
-                League(name[i], id[i], description[i],
-                    image.getResourceId(i, 0))
+        name.forEachIndexed { index, _ ->
+            investments.add(
+                League(
+                    id[index],
+                    name[index],
+                    description[index],
+                    image.getResourceId(index, 0)
+                )
             )
-
         }
 
         image.recycle()
-        progressBar.visibility = View.GONE
+        pbLeague.visibility = View.GONE
+
+        return investments
     }
 
     override fun onResume() {

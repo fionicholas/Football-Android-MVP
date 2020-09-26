@@ -19,21 +19,21 @@ class MatchPresenter ( private val view : MatchView) {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         view.hideLoading()
-                        view.showMatch(response.body()!!.events)
+                        response.body()?.events?.let { view.showMatch(it) }
                     }else {
                         view.hideLoading()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 }else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "message error : ${error.message}")
             }
         })
     }

@@ -23,18 +23,18 @@ class SearchMatchPresenter(private val view : SearchMatchView) {
                     }else {
                         view.hideLoading()
                         view.onResponseNull()
-                        Log.d("tag", "gagal")
+                        Log.d("tag", "failed")
                     }
 
                 }else {
                     view.hideLoading()
-                    Log.d("tag", "gagal")
+                    Log.d("tag", "failed")
                 }
             }
 
             override fun onFailure(call: Call<FootballResponse>, error: Throwable) {
                 view.hideLoading()
-                Log.e("tag", "errornya ${error.message}")
+                Log.e("tag", "error message : ${error.message}")
             }
         })
     }
